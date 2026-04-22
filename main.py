@@ -178,3 +178,47 @@ for key in letter_counts:
 
 print(f"Найчастіша літера: {max_letter} ({letter_counts[max_letter]})")
 print(f"Найрідша літера: {min_letter} ({letter_counts[min_letter]})")
+
+# 4
+# Дано два словники з ключами (букви) і значеннями (цілі числа).
+# - надрукувати спільні пари «ключ-значення»;
+# - надрукувати ключі, що є в першому словнику, але відсутні в другому;
+# - об’єднати два словники в один.
+
+print("==" * 80)
+print("Task 4")
+
+dict_a = {'x': 1, 'y': 2, 'z': 3}
+dict_b = {'w': 10, 'x': 1, 'y': 2}
+
+# 1) спільні пари
+common_pairs = {}
+
+for key_a in dict_a:
+    if key_a in dict_b and dict_a[key_a] == dict_b[key_a]:
+        common_pairs[key_a] = dict_a[key_a]
+
+print("Спільні пари:", common_pairs)
+
+# 2) ключі, що є в dict_a, але нема в dict_b
+only_keys = []
+
+for key_b in dict_a:
+    if key_b not in dict_b:
+        only_keys.append(key_b)
+
+print("Ключі тільки з dict_a:", end=" ")
+for k in only_keys:
+    print(k, end=" ")
+print()
+
+# 3) об’єднання словників
+merged_dict = {}
+
+for key_c in dict_a:
+    merged_dict[key_c] = dict_a[key_c]
+
+for key_d in dict_b:
+    merged_dict[key_d] = dict_b[key_d]
+
+print("Об'єднаний словник:", merged_dict)
