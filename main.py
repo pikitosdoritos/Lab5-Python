@@ -222,3 +222,78 @@ for key_d in dict_b:
     merged_dict[key_d] = dict_b[key_d]
 
 print("Об'єднаний словник:", merged_dict)
+
+# 5
+# Створити словник з інформацією про міста:
+# ключ — назва міста, значення — словник з полями:
+# країна, населення, цікавий факт.
+# Вивести інформацію по кожному місту.
+# Створити словник "країна: столиця".
+# Відсортувати міста за населенням і вивести.
+
+print("==" * 80)
+print("Task 5")
+
+cities = {
+    "Rome": {
+        "country": "Italy",
+        "population": 2868000,
+        "fact": "One of the oldest cities, called the eternal city"
+    },
+    "Canberra": {
+        "country": "Australia",
+        "population": 381448,
+        "fact": "Known as the bush capital"
+    },
+    "Toronto": {
+        "country": "Canada",
+        "population": 2503281,
+        "fact": "Known for the Toronto Maple Leafs"
+    }
+}
+
+# вивід
+for city in cities:
+    print(f"{city}:")
+    print(f"  Country: {cities[city]['country']}")
+    print(f"  Population: {cities[city]['population']}")
+    print(f"  Fact: {cities[city]['fact']}")
+    print()
+
+# словник країна: столиця
+country_capital = {}
+
+for city in cities:
+    country = cities[city]['country']
+    country_capital[country] = city
+
+print("Country: Capital")
+for country in country_capital:
+    print(f"{country}: {country_capital[country]}")
+
+print()
+
+# сортування за населенням
+sorted_cities = list(cities.items())
+
+i = 0
+while i < len(sorted_cities):
+    j = 0
+    while j < len(sorted_cities) - 1:
+        if sorted_cities[j][1]['population'] > sorted_cities[j + 1][1]['population']:
+            temp = sorted_cities[j]
+            sorted_cities[j] = sorted_cities[j + 1]
+            sorted_cities[j + 1] = temp
+        j += 1
+    i += 1
+
+print("Сортування за населенням:")
+for item in sorted_cities:
+    city_name = item[0]
+    info = item[1]
+
+    print(f"{city_name}:")
+    print(f"  Country: {info['country']}")
+    print(f"  Population: {info['population']}")
+    print(f"  Fact: {info['fact']}")
+    print()
