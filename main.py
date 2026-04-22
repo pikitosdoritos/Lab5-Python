@@ -13,7 +13,7 @@
 import random
 
 print("==" * 80)
-print("Task 7")
+print("Task 1")
 
 list_1_task7 = []
 list_2_task7 = []
@@ -80,3 +80,46 @@ for val_f in list_1_task7:
         only_list1_gt3_task7.append(val_f)
 
 print(f"Є в list_1, нема в list_2 і > 3: {only_list1_gt3_task7}")
+
+# 2
+# Дано список значень різних типів даних.
+# Створити словник, де ключами є елементи списку,
+# а значеннями — назви їх типів даних.
+# У словнику можуть бути присутні дані одного типу.
+# Надрукувати вміст словника у вигляді:
+# <class 'тип'> значення1 значення2 ...
+
+print("==" * 80)
+print("Task 2")
+
+data_list_task8 = [
+    1952, 1000000,
+    10.45, 5.5,
+    (2+3j),
+    False,
+    "pythonguide.pp.ua",
+    (1, -6),
+    [3, 15],
+    {'Class C': ['Volkswagen Golf', 'Ford Focus'],
+     'Class F': ['Audi A8', 'Bentley', 'Maybach'],
+     'E': ['Toyota Camry']},
+    None
+]
+
+# НЕ використовуємо значення як ключі напряму
+grouped_task8 = {}
+
+for item_a in data_list_task8:
+    type_name_a = type(item_a).__name__
+
+    if type_name_a not in grouped_task8:
+        grouped_task8[type_name_a] = []
+
+    grouped_task8[type_name_a].append(item_a)
+
+# вивід як в умові
+for type_name_b in grouped_task8:
+    print(f"<class '{type_name_b}'>", end=" ")
+    for val_b in grouped_task8[type_name_b]:
+        print(val_b, end=" ")
+    print()
