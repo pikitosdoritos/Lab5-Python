@@ -15,71 +15,72 @@ import random
 print("==" * 80)
 print("Task 1")
 
-list_1_task7 = []
-list_2_task7 = []
+list_1 = []
+list_2 = []
 
 for _ in range(8):
-    list_1_task7.append(random.randint(-3, 5))
+    list_1.append(random.randint(-3, 5))
 
 for _ in range(10):
-    list_2_task7.append(random.randint(2, 10))
+    list_2.append(random.randint(2, 10))
 
-print(f"list_1: {list_1_task7}")
-print(f"list_2: {list_2_task7}")
+print(f"list_1: {list_1}")
+print(f"list_2: {list_2}")
 
 # tuple_1 (модулі)
-tuple_1_task7 = []
-for val_a in list_1_task7:
-    if val_a < 0:
-        tuple_1_task7.append(-val_a)
+tuple_1 = []
+for num_a in list_1:
+    if num_a < 0:
+        tuple_1.append(-num_a)
     else:
-        tuple_1_task7.append(val_a)
+        tuple_1.append(num_a)
 
-tuple_1_task7 = tuple(tuple_1_task7)
-print(f"tuple_1: {tuple_1_task7}")
+tuple_1 = tuple(tuple_1)
+print(f"tuple_1: {tuple_1}")
 
-# спільні числа (з повторами)
-common_list_task7 = []
-for val_b in list_1_task7:
-    if val_b in list_2_task7:
-        common_list_task7.append(val_b)
+# спільні числа
+common_list = []
+for num_b in list_1:
+    if num_b in list_2:
+        common_list.append(num_b)
 
-print(f"Спільні числа: {common_list_task7}")
+print(f"Спільні числа: {common_list}")
 
-# спільні без дублікатів (кортеж)
-common_unique_task7 = []
-for val_c in list_1_task7:
-    if val_c in list_2_task7 and val_c not in common_unique_task7:
-        common_unique_task7.append(val_c)
+# спільні без дублікатів
+common_unique = []
+for num_c in list_1:
+    if num_c in list_2 and num_c not in common_unique:
+        common_unique.append(num_c)
 
-common_unique_task7 = tuple(common_unique_task7)
-print(f"Спільні без дублікатів (tuple): {common_unique_task7}")
+common_unique = tuple(common_unique)
+print(f"Спільні без дублікатів (tuple): {common_unique}")
 
 # є в list_2, але нема в list_1
-only_list2_task7 = []
-for val_d in list_2_task7:
-    if val_d not in list_1_task7:
-        only_list2_task7.append(val_d)
+only_list2 = []
+for num_d in list_2:
+    if num_d not in list_1:
+        only_list2.append(num_d)
 
-print(f"Є в list_2, але нема в list_1: {only_list2_task7}")
+print(f"Є в list_2, але нема в list_1: {only_list2}")
 
-# парні спільні (кортеж)
-even_common_task7 = []
-for val_e in list_1_task7:
-    if val_e in list_2_task7 and val_e % 2 == 0:
-        if val_e not in even_common_task7:
-            even_common_task7.append(val_e)
+# парні спільні
+even_common = []
+for num_e in list_1:
+    if num_e in list_2 and num_e % 2 == 0:
+        if num_e not in even_common:
+            even_common.append(num_e)
 
-even_common_task7 = tuple(even_common_task7)
-print(f"Парні спільні (tuple): {even_common_task7}")
+even_common = tuple(even_common)
+print(f"Парні спільні (tuple): {even_common}")
 
 # є в list_1, нема в list_2 і > 3
-only_list1_gt3_task7 = []
-for val_f in list_1_task7:
-    if val_f not in list_2_task7 and val_f > 3:
-        only_list1_gt3_task7.append(val_f)
+only_list1_gt3 = []
+for num_f in list_1:
+    if num_f not in list_2 and num_f > 3:
+        only_list1_gt3.append(num_f)
 
-print(f"Є в list_1, нема в list_2 і > 3: {only_list1_gt3_task7}")
+print(f"Є в list_1, нема в list_2 і > 3: {only_list1_gt3}")
+
 
 # 2
 # Дано список значень різних типів даних.
@@ -92,7 +93,7 @@ print(f"Є в list_1, нема в list_2 і > 3: {only_list1_gt3_task7}")
 print("==" * 80)
 print("Task 2")
 
-data_list_task8 = [
+data_list = [
     1952, 1000000,
     10.45, 5.5,
     (2+3j),
@@ -106,20 +107,74 @@ data_list_task8 = [
     None
 ]
 
-# НЕ використовуємо значення як ключі напряму
-grouped_task8 = {}
+grouped = {}
 
-for item_a in data_list_task8:
-    type_name_a = type(item_a).__name__
+for item in data_list:
+    type_name = type(item).__name__
 
-    if type_name_a not in grouped_task8:
-        grouped_task8[type_name_a] = []
+    if type_name not in grouped:
+        grouped[type_name] = []
 
-    grouped_task8[type_name_a].append(item_a)
+    grouped[type_name].append(item)
 
-# вивід як в умові
-for type_name_b in grouped_task8:
-    print(f"<class '{type_name_b}'>", end=" ")
-    for val_b in grouped_task8[type_name_b]:
-        print(val_b, end=" ")
+for type_name in grouped:
+    print(f"<class '{type_name}'>", end=" ")
+    for val in grouped[type_name]:
+        print(val, end=" ")
     print()
+    
+# 3
+# Написати програму для створення словника з рядка для підрахунку кількості букв.
+# Ключі — букви, значення — кількість входжень.
+# Ігнорувати пробіли та пунктуацію, великі/малі літери однакові.
+# Вивести:
+# - довжину словника і всі пари ключ-значення;
+# - кількість входжень букв a, j;
+# - найчастішу і найрідшу букву;
+# - додати відсутні букви зі значенням 0.
+
+print("==" * 80)
+print("Task 3")
+
+text = """Take the first step in faith. You don't have to see the whole staircase,
+just take the first step. Only two things are infinite — the universe and human stupidity,
+and I'm not sure about the former"""
+
+letter_counts = {}
+
+# підрахунок букв
+for ch in text:
+    if ch.isalpha():
+        ch_low = ch.lower()
+        if ch_low in letter_counts:
+            letter_counts[ch_low] += 1
+        else:
+            letter_counts[ch_low] = 1
+
+# додати відсутні букви
+for code in range(ord('a'), ord('z') + 1):
+    letter = chr(code)
+    if letter not in letter_counts:
+        letter_counts[letter] = 0
+
+# довжина і пари
+print(f"Довжина словника: {len(letter_counts)}")
+for key in letter_counts:
+    print(f"{key}: {letter_counts[key]}")
+
+# a, j
+print(f"a: {letter_counts['a']}")
+print(f"j: {letter_counts['j']}")
+
+# найчастіша і найрідша
+max_letter = None
+min_letter = None
+
+for key in letter_counts:
+    if max_letter is None or letter_counts[key] > letter_counts[max_letter]:
+        max_letter = key
+    if min_letter is None or letter_counts[key] < letter_counts[min_letter]:
+        min_letter = key
+
+print(f"Найчастіша літера: {max_letter} ({letter_counts[max_letter]})")
+print(f"Найрідша літера: {min_letter} ({letter_counts[min_letter]})")
